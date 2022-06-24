@@ -1,5 +1,7 @@
 # Example Client for the CoBa API
 
+[CoBa API Catalogue](https://developer.commerzbank.com/products/api-catalog)
+
 ## Requirements
 * JDK 8 or newer
 * Maven
