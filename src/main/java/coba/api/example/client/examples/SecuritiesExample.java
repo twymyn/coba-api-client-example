@@ -45,11 +45,11 @@ public class SecuritiesExample {
 
     public void start() throws JsonProcessingException {
         System.out.println("Starting example calling securities API.");
-        System.out.println("Make sure to create an OAuth credentials with a redirect URL 'http://localhost:5000/login/oauth2/code/commerz'");
+        System.out.println("Make sure to create an OAuth credentials with a redirect URL 'http://localhost:5000/login/oauth2/callback/commerz'");
 
         // Step 1: Open the browser
         System.out.println("Visit the login page and use username:'1234567890' and password:'12345'");
-        System.out.println(SANDBOX_AUTH_URL + "?response_type=code&client_id=" + cliParameters.getClientId() + "&redirect_uri=http://localhost:5000/login/oauth2/code/commerz");
+        System.out.println(SANDBOX_AUTH_URL + "?response_type=code&client_id=" + cliParameters.getClientId() + "&redirect_uri=http://localhost:5000/login/oauth2/callback/commerz");
 
 
         // Step 2: Receive the authorization code

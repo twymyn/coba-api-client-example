@@ -18,7 +18,7 @@ public class OAuthResponseController {
     // The BlockingQueue is used to transmit the OAuth code to the main thread.
     private BlockingQueue<AuthorizationCode> responses = new SynchronousQueue<>();
 
-    @GetMapping("/login/oauth2/code/commerz")
+    @GetMapping("/login/oauth2/callback/commerz")
     @ResponseBody
     public AuthorizationCode callbackEndpoint(
             @RequestParam("code") String code,                  // Read the URL query parameter code
