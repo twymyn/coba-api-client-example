@@ -37,14 +37,14 @@ public class SecuritiesWebClient {
     }
 
 
-    public String getAssets(String accessToken) {
+    public String getAssets(String accessToken, String accountId) {
         WebClient client = WebClientUtil.builder(cliParameters)
                 .baseUrl("https://api-sandbox.commerzbank.com/securities-api/v3")         // Set base url
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)  // Set default content type to JSON
                 .build();
 
         return client.get()                                                 // Use HTTP verb GET
-                .uri("/security-accounts/100123456711/assets")                                  // Use endpoint to request all security accounts
+                .uri("/security-accounts/" + accountId + "/assets")                                  // Use endpoint to request all security accounts
                 .headers(headers -> headers.setBearerAuth(accessToken))     // Sets the HTTP header Authorization: Bearer <token>
                 .retrieve()
                 .bodyToMono(String.class) // Map JSON response to a Java object

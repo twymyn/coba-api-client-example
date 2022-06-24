@@ -64,8 +64,10 @@ public class SecuritiesExample {
         SecurityAccountsResponse allAccounts = securitiesWebClient.getAllAccounts(oAuthResponse.getAccessToken());
         System.out.println("Receive response:\n" + JsonUtil.toPrettyJson(allAccounts));
 
-        System.out.println("Now calling assets API. GET /security-accounts/blabla/assets");
-        String assets = securitiesWebClient.getAssets(oAuthResponse.getAccessToken());
+        String accountId = allAccounts.getSecurityAccountIDs().get(0).getPseudonymizedAccountId();
+
+        System.out.println("Now calling assets API. GET /security-accounts/" + accountId + "/assets");
+        String assets = securitiesWebClient.getAssets(oAuthResponse.getAccessToken(), accountId);
         System.out.println("Receive response:\n" + assets);
     }
 
